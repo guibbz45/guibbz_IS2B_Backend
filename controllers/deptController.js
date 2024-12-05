@@ -31,7 +31,7 @@ const createDepartment = async (req, res) => {
     }
 
     try {
-        const [userRows] = await pool.query('SELECT id FROM users WHERE id = ?', [user_id]);
+        const [userRows] = await pool.query('SELECT user_id FROM users WHERE user_id = ?', [user_id]);
         if (userRows.length === 0) {
             return res.status(400).json({ error: 'Invalid user_id, user does not exist' });
         }
